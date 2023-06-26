@@ -17,7 +17,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # Use a base image with Java and Tomcat pre-installed
-FROM tomcat:9.0-jdk11-openjdk
+FROM tomcat:9.0.76-jdk21-openjdk
 
 # Create and set a non-root user
 RUN addgroup --gid 10014 sample && \
