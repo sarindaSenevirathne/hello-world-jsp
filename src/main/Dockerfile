@@ -1,5 +1,5 @@
 # Use a base image with Maven to build the application
-FROM maven:3.8.4-openjdk-11 AS builder
+FROM maven:3.5.4-jdk-8-alpine AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
