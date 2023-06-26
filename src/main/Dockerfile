@@ -19,6 +19,12 @@ RUN mvn package -DskipTests
 # Use a base image with Java and Tomcat pre-installed
 FROM tomcat:9.0-jdk11-openjdk
 
+# Create and set a non-root user
+RUN addgroup --gid 10014 sample && \
+    adduser  --disabled-password  --no-create-home --uid 10014 --ingroup sample sampleuser
+
+USER 10014
+
 # Set the working directory inside the container
 WORKDIR /usr/local/tomcat/webapps
 
