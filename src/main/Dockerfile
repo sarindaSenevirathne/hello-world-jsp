@@ -1,8 +1,6 @@
 # Use a base image with Maven to build the application
 FROM maven:3.5.4-jdk-8-alpine AS builder
 
-USER 10014
-
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -20,6 +18,8 @@ RUN mvn package -DskipTests
 
 # Use a base image with Java and Tomcat pre-installed
 FROM tomcat:9.0.76-jdk21-openjdk
+
+USER 10014
 
 # Set the working directory inside the container
 WORKDIR /usr/local/tomcat/webapps
